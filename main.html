@@ -9,11 +9,20 @@
     <title>Calculador de números</title>
 </head>
 <body>
+    <form name="formulario" class="container">
         <div class="alert alert-info text-center" role="alert">
             <h4 class="alert-heading">Calculador de números</h4>
             <p class="mb-0"><strong>Instrucciones</strong>
                 Ingrese uno a uno los números que formaran la lista
             </p>
         </div>
+
+        <div class="form-floating col-5 mb-3" name="casilla-numero">
+            <input type="number" class="form-control" placeholder="numero" id="numero">
+            <label for="numero">Ingrese número</label>
+        </div>
+
+        <button type="reset" name="reiniciar" class="btn btn-outline-warning oculto">Reiniciar</button>
+    </form>
 </body>
 </html>
