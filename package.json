@@ -1,0 +1,22 @@
+{
+  "name": "calculador-de-numeros",
+  "version": "1.0.0",
+  "description": "Calcula el promedio, el menor, el mayor y el que más se repite",
+  "main": "main.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alexis2428/Calculador-de-numeros.git"
+  },
+  "author": "Alexis Landa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alexis2428/Calculador-de-numeros/issues"
+  },
+  "homepage": "https://github.com/Alexis2428/Calculador-de-numeros#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.3"
+  }
+}
