@@ -95,6 +95,7 @@ function obtenerRespuesta(tipo, valor) {
 
 function reiniciar() {
     borrarListaAnterior();
+    borrarErroresAnteriores();
     ocultarRespuestas();
     ocultarErrores();
     ocultarBotonesCalculos();
@@ -107,6 +108,16 @@ function borrarListaAnterior() {
     for (let i = 0; i < $listaNumeros.length; i++) {
         $listaNumeros[i].remove();
     }
+}
+
+function borrarErroresAnteriores() {
+    const $errores = $formulario.querySelectorAll('#errores li');
+
+    for (let i = 0; i < $errores.length; i++) {
+        $errores[i].remove();
+    }
+
+    $formulario.querySelector('#casilla-numero input').classList.remove('error');
 }
 
 function mostrarRespuesta(tipo) {
