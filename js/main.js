@@ -10,12 +10,18 @@ $formulario.reiniciar.onclick = reiniciar;
 
 function agregar() {
     const $numero = $formulario.querySelector('#casilla-numero input');
-    
-    crearNumero($numero.value);
 
-    $numero.value = '';
+    const esValido = validarDato($numero)
+
+    if (esValido) {
+        crearNumero($numero.value);
+        $numero.value = '';
 
     mostrarBotonesCalculos();
+
+    } else {
+        mostrarErrores();
+    }
 }
 
 function crearNumero(numero) {
@@ -90,6 +96,7 @@ function obtenerRespuesta(tipo, valor) {
 function reiniciar() {
     borrarListaAnterior();
     ocultarRespuestas();
+    ocultarErrores();
     ocultarBotonesCalculos();
     ocultarBotonReiniciar();
 }
@@ -127,4 +134,12 @@ function mostrarBotonReiniciar() {
 
 function ocultarBotonReiniciar() {
     $formulario.reiniciar.classList.add('oculto');
+}
+
+function mostrarErrores() {
+    $formulario.querySelector('#errores').classList.remove('oculto');
+}
+
+function ocultarErrores() {
+    $formulario.querySelector('#errores').classList.add('oculto');
 }
