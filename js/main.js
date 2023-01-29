@@ -41,6 +41,52 @@ function manejarCalculos() {
     })
 }
 
+function manejarCalculo(event) {
+    const $calculo = event.target;
+    const $calculos = $formulario.querySelectorAll('.calculo');
+
+    const $listaNumeros = $formulario.querySelectorAll('#lista-numeros li');
+
+    const numeros = obtenerNumeros($listaNumeros);
+    
+    if ($calculos[0].id === $calculo.id) {
+        obtenerRespuesta('promedio', obtenerPromedio(numeros).toFixed(2));
+        mostrarRespuesta('promedio');
+
+    } else {
+        if($calculos[1].id === $calculo.id) {
+            obtenerRespuesta('menor', obtenerNumeroMenor(numeros));
+            mostrarRespuesta('menor');
+
+        } else {
+            if ($calculos[2].id === $calculo.id) {
+                obtenerRespuesta('mayor', obtenerNumeroMayor(numeros));
+                mostrarRespuesta('mayor');
+
+            } else {
+                obtenerRespuesta('frecuente', obtenerNumeroFrecuente(numeros));
+                mostrarRespuesta('frecuente');
+            }
+        }
+    }
+
+    mostrarBotonReiniciar();
+}
+
+function obtenerNumeros($listaNumeros) {
+    const numeros = [];
+
+    for (let i = 0; i < $listaNumeros.length; i++) {
+        numeros.push(Number($listaNumeros[i].textContent));
+    }
+
+    return numeros;
+}
+
+function obtenerRespuesta(tipo, valor) {
+    $formulario.querySelector(`#numero-${tipo}`).textContent = valor;
+}
+
 function reiniciar() {
     borrarListaAnterior();
     ocultarRespuestas();
