@@ -17,7 +17,7 @@
             </p>
         </div>
 
-        <div class="form-floating col-5 mb-3" name="casilla-numero">
+        <div class="form-floating col-5 mb-3" id="casilla-numero">
             <input type="number" class="form-control" placeholder="numero" id="numero">
             <label for="numero">Ingrese número</label>
         </div>
@@ -29,18 +29,20 @@
 
         <p name="lista-numeros">Lista de numeros: </p>
         
-        <div name="botones-calculos" class="oculto mb-3">
-            <button type="button" class="btn btn-outline-primary" name="obtener-promedio">Obtener el promedio</button>
-            <button type="button" class="btn btn-outline-primary" name="obtener-numero-menor">Obtener el número menor</button>
-            <button type="button" class="btn btn-outline-primary" name="obtener-numero-mayor">Obtener el número mayor</button>
-            <button type="button" class="btn btn-outline-primary" name="obtener-numero-frecuente">Obtener el número más frecuente</button>
+        <div id="botones-calculos" class="oculto mb-3">
+            <button type="button" class="btn btn-outline-primary calculo" id="obtener-promedio">Obtener el promedio</button>
+            <button type="button" class="btn btn-outline-primary calculo" id="obtener-numero-menor">Obtener el número menor</button>
+            <button type="button" class="btn btn-outline-primary calculo" id="obtener-numero-mayor">Obtener el número mayor</button>
+            <button type="button" class="btn btn-outline-primary calculo" id="obtener-numero-frecuente">
+                Obtener el número más frecuente
+            </button>
         </div>
 
         <div name="respuestas">
-            <p name="respuesta-promedio" class="oculto mb-2">El promedio es ... <em name="promedio"></em></p>
-            <p name="respuesta-numero-menor" class="oculto mb-2">El número menor es ... <em name="numero-menor"></em></p>
-            <p name="respuesta-numero-mayor" class="oculto mb-2">El número mayor es ... <em name="numero-mayor"></em></p>
-            <p name="respuesta-numero-frecuente" class="oculto">El número más frecuente es ... <em name="numero-frecuente"></em></p>
+            <p id="respuesta-numero-promedio" class="oculto mb-2">El promedio es ... <em id="numero-promedio"></em></p>
+            <p id="respuesta-numero-menor" class="oculto mb-2">El número menor es ... <em id="numero-menor"></em></p>
+            <p id="respuesta-numero-mayor" class="oculto mb-2">El número mayor es ... <em id="numero-mayor"></em></p>
+            <p id="respuesta-numero-frecuente" class="oculto">El número más frecuente es ... <em id="numero-frecuente"></em></p>
         </div>
 
         <button type="reset" name="reiniciar" class="btn btn-outline-warning oculto">Reiniciar</button>
