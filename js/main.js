@@ -1,3 +1,60 @@
+const $formulario = document.formulario;
+
+$formulario.agregar.onclick = agregar;
+
+$formulario.borrar.onclick = borrarUltimoNumero;
+
+manejarCalculos();
+
+$formulario.reiniciar.onclick = reiniciar;
+
+function agregar() {
+    const $numero = $formulario.querySelector('#casilla-numero input');
+    
+    crearNumero($numero.value);
+
+    $numero.value = '';
+
+    mostrarBotonesCalculos();
+}
+
+function crearNumero(numero) {
+    const $numero = document.createElement('li');
+    $numero.classList.add('list-group-item');
+    $numero.classList.add('col-5');
+    $numero.textContent = numero;
+
+    $formulario.querySelector('#lista-numeros').appendChild($numero);
+}
+
+function borrarUltimoNumero() {
+    const $listaNumeros = $formulario.querySelectorAll('#lista-numeros li');
+
+    if (0 < $listaNumeros.length) {
+        $listaNumeros[$listaNumeros.length - 1].remove();
+    }
+}
+
+function manejarCalculos() {
+    $formulario.querySelectorAll('.calculo').forEach(function($calculo) {
+        $calculo.onclick = manejarCalculo;
+    })
+}
+
+function reiniciar() {
+    borrarListaAnterior();
+    ocultarRespuestas();
+    ocultarBotonesCalculos();
+    ocultarBotonReiniciar();
+}
+
+function borrarListaAnterior() {
+    const $listaNumeros = $formulario.querySelectorAll('#lista-numeros li');
+
+    for (let i = 0; i < $listaNumeros.length; i++) {
+        $listaNumeros[i].remove();
+    }
+}
 
 function mostrarRespuesta(tipo) {
     $formulario.querySelector(`#respuesta-numero-${tipo}`).classList.remove('oculto');
