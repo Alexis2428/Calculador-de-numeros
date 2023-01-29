@@ -17,7 +17,7 @@ function agregar() {
         crearNumero($numero.value);
         $numero.value = '';
 
-    mostrarBotonesCalculos();
+        mostrarBotonesCalculos();
 
     } else {
         mostrarErrores();
@@ -38,6 +38,10 @@ function borrarUltimoNumero() {
 
     if (0 < $listaNumeros.length) {
         $listaNumeros[$listaNumeros.length - 1].remove();
+    } 
+    if (1 === $listaNumeros.length) {
+        ocultarBotonesCalculos();
+        ocultarRespuestas();
     }
 }
 
