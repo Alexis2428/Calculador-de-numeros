@@ -59,23 +59,23 @@ function manejarCalculo(event) {
 
     const numeros = obtenerNumeros($listaNumeros);
     
-    if ($calculos[0].id === $calculo.id) {
+    if ($calculos[0].id === $calculo.id) {                                  // Obtener promedio
         obtenerRespuesta('promedio', obtenerPromedio(numeros).toFixed(2));
         mostrarRespuesta('promedio');
 
     } else {
-        if($calculos[1].id === $calculo.id) {
+        if($calculos[1].id === $calculo.id) {                               // Obtener número menor
             obtenerRespuesta('menor', obtenerNumeroMenor(numeros));
             mostrarRespuesta('menor');
 
         } else {
-            if ($calculos[2].id === $calculo.id) {
+            if ($calculos[2].id === $calculo.id) {                          // Obtener número mayor
                 obtenerRespuesta('mayor', obtenerNumeroMayor(numeros));
                 mostrarRespuesta('mayor');
 
-            } else {
                 obtenerRespuesta('frecuente', obtenerNumeroFrecuente(numeros));
                 mostrarRespuesta('frecuente');
+            } else {                                                        // Obtener número frecuente
             }
         }
     }
