@@ -42,6 +42,8 @@ function borrarUltimoNumero() {
     if (1 === $listaNumeros.length) {
         ocultarBotonesCalculos();
         ocultarRespuestas();
+        borrarErroresAnteriores();
+        $formulario.querySelector('#obtener-numero-frecuente').classList.remove('error');
     }
 }
 
@@ -127,6 +129,7 @@ function reiniciar() {
     ocultarErrores();
     ocultarBotonesCalculos();
     ocultarBotonReiniciar();
+    $formulario.querySelector('#obtener-numero-frecuente').classList.remove('error');
 }
 
 function borrarListaAnterior() {
