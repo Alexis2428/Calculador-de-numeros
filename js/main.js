@@ -73,9 +73,32 @@ function manejarCalculo(event) {
                 obtenerRespuesta('mayor', obtenerNumeroMayor(numeros));
                 mostrarRespuesta('mayor');
 
-                obtenerRespuesta('frecuente', obtenerNumeroFrecuente(numeros));
-                mostrarRespuesta('frecuente');
             } else {                                                        // Obtener número frecuente
+                const error = 'Debe tener minimo 2 números iguales para obtener el más frecuente';
+
+                const numeroFrecuente = obtenerNumeroFrecuente(numeros);
+
+                if ((1 < numeros.length) && (undefined !== numeroFrecuente)) {
+                    const $errores = $formulario.querySelectorAll('#errores li');
+
+                    for (let i = 0; i < $errores.length; i++) {
+                        if (error === $errores[i].textContent) {
+                            $errores[i].remove();
+                        }
+                    }
+                    $formulario.querySelector('#obtener-numero-frecuente').classList.remove('error');
+
+                    obtenerRespuesta('frecuente', numeroFrecuente);
+                    mostrarRespuesta('frecuente');
+
+                } else {
+                    if (!comprobarExisteError(error)) {
+                        crearError(error);
+                    }
+                    $formulario.querySelector('#obtener-numero-frecuente').classList.add('error');
+                    mostrarErrores();
+                    $formulario.querySelector(`#respuesta-numero-frecuente`).classList.add('oculto');
+                }
             }
         }
     }
